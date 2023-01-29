@@ -259,6 +259,8 @@ jac0dim_ASL(ASL *asl, const char *stub, ftnlen stub_len)
 		}
 	student_check_ASL(asl);
 	if (n_con < 0 || n_var <= 0 || n_obj < 0) {
+		if (return_nofile)
+			return 0;
 		what_prog();
 		fprintf(Stderr,
 		"jacdim: got M = %d, N = %d, NO = %d\n", n_con, n_var, n_obj);
